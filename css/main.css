@@ -1,9 +1,12 @@
 :root {
-  --primary-color: #2a2a72;
-  --secondary-color: #009ffd;
-  --background-color: #f8f9fa;
-  --text-color: #333;
-  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --primary-color: #1a1f3c;
+  --secondary-color: #3498db;
+  --accent-color: #00d2ff;
+  --background-color: #0f172a;
+  --surface-color: #1e293b;
+  --text-color: #e2e8f0;
+  --text-muted: #94a3b8;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   --transition-speed: 0.3s;
 }
 
@@ -16,9 +19,9 @@ body {
 
 /* Navbar styles */
 .navbar {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.8);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 1rem;
   position: fixed;
   top: 0;
@@ -30,14 +33,14 @@ body {
 
 .navbar.scrolled {
   padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .navbar .navbar-brand {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--accent-color);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -50,40 +53,46 @@ body {
   border: none;
   border-radius: 16px;
   padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(30, 41, 59, 0.8);
   backdrop-filter: blur(5px);
   transition: all var(--transition-speed) ease;
+  color: var(--text-color);
 }
 
 .navbar .form-control:focus {
-  box-shadow: 0 0 0 2px var(--secondary-color);
-  background: white;
+  box-shadow: 0 0 0 2px var(--accent-color);
+  background: var(--surface-color);
+}
+
+.navbar .form-control::placeholder {
+  color: var(--text-muted);
 }
 
 .navbar .btn-outline-light {
   border-radius: 16px;
   padding: 0.5rem 1rem;
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
   font-weight: 600;
+  background: transparent;
 }
 
 .navbar .btn-outline-light:hover {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--accent-color);
+  color: var(--primary-color);
 }
 
 /* Main content styles */
 .main-content {
   padding-top: 80px;
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--background-color) 0%, #ffffff 100%);
+  background: linear-gradient(135deg, var(--background-color) 0%, var(--primary-color) 100%);
 }
 
 .main-content h2 {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--accent-color);
   margin-bottom: 2rem;
   position: relative;
 }
@@ -133,7 +142,7 @@ body {
 .movie-card .card {
   border: none;
   border-radius: 8px;
-  background: white;
+  background: var(--surface-color);
   overflow: hidden;
   height: 100%;
   transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
@@ -141,7 +150,7 @@ body {
 
 .movie-card .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
 }
 
 .movie-card .card-img-top {
@@ -156,7 +165,10 @@ body {
 
 .movie-card .card-body {
   padding: 1rem;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
+  background: linear-gradient(to bottom, 
+    rgba(30, 41, 59, 0.9),
+    rgba(30, 41, 59, 1)
+  );
 }
 
 .movie-card .card-title {
@@ -169,14 +181,16 @@ body {
 .movie-card .text-muted {
   font-size: 0.9rem;
   margin-bottom: 1rem;
+  color: var(--text-muted) !important;
 }
 
 .movie-card .btn-primary {
-  background-color: var(--primary-color);
+  background-color: var(--accent-color);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: all var(--transition-speed) ease;
+  color: var(--primary-color);
 }
 
 .movie-card .btn-primary:hover {
@@ -189,16 +203,16 @@ body {
   margin-top: 4rem;
   padding: 1rem 2rem;
   background-color: transparent;
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
   font-weight: 600;
   border-radius: 16px;
   transition: all var(--transition-speed) ease;
 }
 
 #cargar-mas:hover {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--accent-color);
+  color: var(--primary-color);
   transform: translateY(-2px);
 }
 
@@ -210,7 +224,7 @@ body {
 .movie-detail {
   padding-top: 80px;
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--background-color) 0%, #ffffff 100%);
+  background: linear-gradient(135deg, var(--background-color) 0%, var(--primary-color) 100%);
 }
 
 .movie-detail .movie-header {
@@ -226,8 +240,8 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--primary-color);
-  opacity: 0.1;
+  background: var(--accent-color);
+  opacity: 0.05;
   z-index: -1;
 }
 
@@ -248,7 +262,7 @@ body {
 .movie-detail .movie-info h1 {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--accent-color);
   margin-bottom: 1rem;
 }
 
@@ -257,7 +271,7 @@ body {
   gap: 1rem;
   margin-bottom: 2rem;
   font-size: 1.1rem;
-  color: var(--text-color);
+  color: var(--text-muted);
   opacity: 0.8;
 }
 
@@ -276,22 +290,23 @@ body {
 
 .movie-detail .stat-item {
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
+  background: rgba(30, 41, 59, 0.5);
   backdrop-filter: blur(5px);
+  border-radius: 8px;
 }
 
 .movie-detail .stat-item h3 {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--primary-color);
+  color: var(--accent-color);
   margin-bottom: 0.25rem;
 }
 
 .movie-detail .stat-item p {
   font-size: 1.1rem;
   font-weight: 600;
+  color: var(--text-color);
 }
 
 .movie-detail .back-button {
@@ -299,7 +314,7 @@ body {
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  color: var(--primary-color);
+  color: var(--accent-color);
   text-decoration: none;
   font-weight: 600;
   transition: all var(--transition-speed) ease;
@@ -337,4 +352,10 @@ body {
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+.alert-danger {
+  background-color: rgba(220, 38, 38, 0.1);
+  border-color: rgba(220, 38, 38, 0.2);
+  color: #fecaca;
 } 
